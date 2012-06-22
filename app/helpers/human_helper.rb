@@ -1,0 +1,2 @@
+module HumanHelper
+end
