@@ -20,6 +20,8 @@ class PagesController < ApplicationController
 	end
 	def Explore
 		@title = "Explore"
+		@chr_group1 = (1..12).to_a
+		@chr_group2 = %w[13 14 15 16 17 18 19 20 21 22 X Y]
 	end
 
 end

@@ -1,2 +1,22 @@
-<h1>Pages#Explore</h1>
-<p>Find me in app/views/pages/Explore.html.erb</p>
+<h1>Explore data by Chromosome</h1>
+<table>
+	<tr valign="bottom">
+		<% @chr_group1.each do |i| %>
+			<td width="50px" style="font:16px">
+				<% chr=image_tag("small_chr#{i}.jpg", :alt => "chr#{i}", :class => "round", :title =>"chr#{i}") %>
+				<%= link_to chr, "human/show_by_chr?chr=#{i}" %>
+				<%= link_to "#{i}", "human/show_by_chr?chr=#{i}" %>
+			</td>
+		<% end%>
+	</tr>
+	<tr valign="bottom">
+		<% @chr_group2.each do |i| %>
+			<td width="50px" style="font:16px">
+				<% chr=image_tag("small_chr#{i}.jpg", :alt => "chr#{i}", :class => "round", :title =>"chr#{i}") %>
+				<%= link_to chr, "human/show_by_chr?chr=#{i}" %>
+				<%= link_to "#{i}", "human/show_by_chr?chr=#{i}" %>
+			</td>
+		<% end%>
+	</tr>
+</table>
+
