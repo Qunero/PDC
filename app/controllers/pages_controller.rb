@@ -1,16 +1,25 @@
 class PagesController < ApplicationController
-  def Home
-  end
+	def Home
+		@title = "Home"
+	end
 
-  def Projects
-  end
+	def Projects
+		@title = "Projects"
+	end
 
-  def Search
-  end
+	def Search
+		@title = "Search"
+	end
 
-  def User
-  end
+	def User
+		@title = "User"
+	end
 
-  def Contact
-  end
+	def Contact
+		@title = "Contact"
+	end
+	def Explore
+		@title = "Explore"
+	end
+
 end
