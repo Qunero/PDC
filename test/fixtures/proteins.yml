@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  pro_id: MyString
+  version: MyString
+  chr: MyString
+  gene: MyString
+  transcription: MyString
+
+two:
+  pro_id: MyString
+  version: MyString
+  chr: MyString
+  gene: MyString
+  transcription: MyString

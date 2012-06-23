@@ -1,0 +1,47 @@
+<% if @results.size == 0 %>
+	<h3> Sorry, no related data found, please try to search other items</h3>
+<% else %>
+	<% if @result_type =='protein' %>
+		<h1>Results for Protein: <%= params[:pro_id]%> </h1>
+		<table border="1">
+			<tr>
+				<th>Protein ID</th>
+				<th>Transcription ID</th>
+				<th>Gene ID</th>
+				<th>Chromosome</th>
+				<th>Version</th>
+			</tr>
+			<% @results.each do |record| %>
+				<tr>
+					<td><%= record.pro_id %></td>
+					<td><%= record.transcription %></td>
+					<td><%= record.gene%></td>
+					<td><%= record.chr %></td>
+					<td><%= record.version %></td>
+				</tr>
+			<% end %>
+		</table>
+
+		<br />
+	<% else %>
+		<h1>Results for Gene: <%= params[:gene_id]%> </h1>
+		<table border="1">
+			<tr>
+				<th>Gene ID</th>
+				<th>Transcription ID</th>
+				<th>Protein ID</th>
+				<th>Chromosome</th>
+				<th>Version</th>
+			</tr>
+			<% @results.each do |record| %>
+				<tr>
+					<td><%= record.gene%></td>
+					<td><%= record.transcription %></td>
+					<td><%= record.pro_id %></td>
+					<td><%= record.chr %></td>
+					<td><%= record.version %></td>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+<% end %>

@@ -2,16 +2,20 @@
 <p>There shall be some data soon ...</p>
 <br/>
 <h1>Manage Projects</h1>
+<h3>1. Choose your file type</h3>
+<%= select_tag(:data_type, options_for_select([["GRCh37 ref_table tsv",1], ["GRCh37.64.pep.all.fa",2]],1)) %>
+<h3>2. Choose the way to upload data</h3>
+<div style="display:none">
 <%= radio_button_tag(:load_data, "upload") %>
-<%= label_tag(:load_data_upload, "1. Upload your tsv file") %>
+<%= label_tag(:load_data_upload, "Upload your tsv file") %>
 <%= form_tag("/projects",:multipart => true, :method => "post") do %>
 	<%= label_tag(:file, "Choose your file:") %>
 	<%= file_field_tag "file" %>
 	<%= submit_tag("Upload file") %>
 <% end %>
-
+</div>
 <%= radio_button_tag(:load_data, "path") %>
-<%= label_tag(:load_data_path, "2. Just give the tsv file path" )%>
+<%= label_tag(:load_data_path, "Just give the tsv file path" )%>
 <%= form_tag("/projects", :method => "post") do %>
 	<%= label_tag(:path, "File path:") %>
 	<%= text_field_tag(:path) %>

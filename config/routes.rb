@@ -1,17 +1,20 @@
 PDC::Application.routes.draw do
   get "human/show_by_chr"
 
+  get "pages/Contact"
+
   get "pages/Explore"
 
   get "pages/Home"
 
   get "pages/Projects"
 
+  get "pages/Result"
+
   get "pages/Search"
 
   get "pages/User"
 
-  get "pages/Contact"
 
   match '/', :to => 'pages#Home'
   match '/contact', :to => 'pages#Contact'
