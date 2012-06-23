@@ -32,6 +32,37 @@ class PagesController < ApplicationController
 		@title = "Search"
 	end
 
+	def Upload
+		@title = "Upload"
+		path = params[:path]
+		password = params[:password]
+		if password == 'sure' && path[0] == '/'
+			@status = 'Success'
+			@info = 'Start handling the data for: ' + path
+=begin
+			require 'active_record'
+			require '/var/lib/gems/1.9.1/gems/activerecord-import-0.2.9/lib/activerecord-import'
+			proteins = []
+			File.open(path){ |f|
+				f.each_line do |l|
+					arr = l.chomp.split("\t")
+					proteins<< Protein.new(:pro_id => arr[0], :version => arr[1], :chr => arr[2], :gene => arr[3], :transcription => arr[4])
+				end
+			}
+
+			File.open('dat','w'){ |f|
+				$stdout = f
+				p proteins
+				$stdout = STDOUT
+			}
+			#Protein.import proteins
+=end
+		else
+			@status = 'Failed'
+			@info = 'Can\'t handle your data at the moment, contact the admin'
+		end
+	end
+
 	def User
 		@title = "User"
 	end
