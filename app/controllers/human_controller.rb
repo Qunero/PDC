@@ -17,5 +17,10 @@ class HumanController < ApplicationController
 		end
 
 		@records = Protein.where(["chr = ?", @chr ]).limit(20).offset(@ofs)
+		
+		# check whether there is enough records
+		if @records.size < 20
+			@ofs = 0
+		end
 	end
 end
