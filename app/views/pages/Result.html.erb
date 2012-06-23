@@ -3,7 +3,7 @@
 <% else %>
 	<% if @result_type =='protein' %>
 		<h1>Results for Protein: <%= params[:pro_id]%> </h1>
-		<table border="1">
+		<table border="1" cellpadding="5">
 			<tr>
 				<th>Protein ID</th>
 				<th>Transcription ID</th>
@@ -25,7 +25,7 @@
 		<br />
 	<% else %>
 		<h1>Results for Gene: <%= params[:gene_id]%> </h1>
-		<table border="1">
+		<table border="1" cellpadding="5">
 			<tr>
 				<th>Gene ID</th>
 				<th>Transcription ID</th>

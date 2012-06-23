@@ -13,8 +13,9 @@ PDC::Application.routes.draw do
 
   get "pages/Search"
 
-  get "pages/User"
+  get "pages/Upload"
 
+  get "pages/User"
 
   match '/', :to => 'pages#Home'
   match '/contact', :to => 'pages#Contact'
@@ -23,6 +24,7 @@ PDC::Application.routes.draw do
   match '/projects', :to => 'pages#Projects'
   match '/search', :to => 'pages#Search'
   match '/signup', :to => 'users#new'
+  match '/upload', :to => 'pages#Upload'
   match '/user', :to => 'pages#User'
 
   # The priority is based upon order of creation:

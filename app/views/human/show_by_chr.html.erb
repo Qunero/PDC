@@ -1,5 +1,33 @@
 <h1>Summary for Human#chr<%= "#{@chr}"%></h1>
-<div>
+
+<br/>
+
+<div id='chr'>
 	<%= image_tag("chr#{@chr}.jpg", :alt => "chr#{@chr}", :class => "round", :title =>"chr#{@chr}") %>
 </div>
-
+<div id='pro_table'>
+	<table border="1" cellpadding="5">
+		<tr>
+			<th>Protein ID</th>
+			<th>Transcription ID</th>
+			<th>Gene ID</th>
+			<th>Chromosome</th>
+			<th>Version</th>
+		</tr>
+		<% @records.each do |record| %>
+			<tr>
+				<td><%= record.pro_id %></td>
+				<td><%= record.transcription %></td>
+				<td><%= record.gene%></td>
+				<td><%= record.chr %></td>
+				<td><%= record.version %></td>
+			</tr>
+		<% end %>
+	</table>
+	<%= form_tag("/human/show_by_chr", :method => "get") do %>
+		<input name="chr" type="hidden" value=<%= "#{@chr}" %> />
+		<input name="ofs" type="hidden" value=<%= "#{@ofs}" %> />
+		<%= submit_tag("Previous") %>
+		<%= submit_tag("Next") %>
+	<% end %>
+</div>
