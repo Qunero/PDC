@@ -5,6 +5,8 @@ PDC::Application.routes.draw do
 
   get "pages/Explore"
 
+  get "pages/Help"
+
   get "pages/Home"
 
   get "pages/Projects"
@@ -20,7 +22,9 @@ PDC::Application.routes.draw do
   match '/', :to => 'pages#Home'
   match '/contact', :to => 'pages#Contact'
   match '/explore', :to => 'pages#Explore'
+  match '/help', :to => 'pages#Help'
   match '/home', :to => 'pages#Home'
+  match '/human/show_by_chr', :to => 'human#show_by_chr'
   match '/projects', :to => 'pages#Projects'
   match '/search', :to => 'pages#Search'
   match '/signup', :to => 'users#new'

@@ -13,9 +13,9 @@
 			</tr>
 			<% @results.each do |record| %>
 				<tr>
-					<td><%= record.pro_id %></td>
-					<td><%= record.transcription %></td>
-					<td><%= record.gene%></td>
+					<td><%= link_to record.pro_id, "http://asia.ensembl.org/Homo_sapiens/Search/Results?species=Homo_sapiens;idx=;q=#{record.pro_id}", :target =>"_blank" %></td>
+					<td><%= link_to record.transcription, "http://asia.ensembl.org/Homo_sapiens/Transcript/Summary?t=#{record.transcription}", :target=>"_blank" %></td>
+					<td><%= link_to record.gene,"/pages/Result?gene_id=#{record.gene}&commit=Search_Gene"  %></td>
 					<td><%= record.chr %></td>
 					<td><%= record.version %></td>
 				</tr>
@@ -35,9 +35,9 @@
 			</tr>
 			<% @results.each do |record| %>
 				<tr>
-					<td><%= record.gene%></td>
-					<td><%= record.transcription %></td>
-					<td><%= record.pro_id %></td>
+					<td><%= link_to record.gene, "http://asia.ensembl.org/Homo_sapiens/Gene/Summary?g=#{record.gene}", :target =>"_blank"  %></td>
+					<td><%= link_to record.transcription, "http://asia.ensembl.org/Homo_sapiens/Transcript/Summary?t=#{record.transcription}", :target=>"_blank" %></td>
+					<td><%= link_to record.pro_id, "/pages/Result?pro_id=#{record.pro_id}&commit=Search_Pro" %></td>
 					<td><%= record.chr %></td>
 					<td><%= record.version %></td>
 				</tr>

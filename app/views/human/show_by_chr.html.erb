@@ -16,15 +16,15 @@
 		</tr>
 		<% @records.each do |record| %>
 			<tr>
-				<td><%= record.pro_id %></td>
-				<td><%= record.transcription %></td>
-				<td><%= record.gene%></td>
+				<td><%= link_to record.pro_id, "/pages/Result?pro_id=#{record.pro_id}&commit=Search_Pro" %></td>
+				<td><%= link_to record.transcription, "http://asia.ensembl.org/Homo_sapiens/Transcript/Summary?t=#{record.transcription}", :target=>"_blank" %></td>
+				<td><%= link_to record.gene,"/pages/Result?gene_id=#{record.gene}&commit=Search_Gene"  %></td>
 				<td><%= record.chr %></td>
 				<td><%= record.version %></td>
 			</tr>
 		<% end %>
 	</table>
-	<%= form_tag("/human/show_by_chr", :method => "get") do %>
+	<%= form_tag("/human/show_by_chr", :method => "post") do %>
 		<input name="chr" type="hidden" value=<%= "#{@chr}" %> />
 		<input name="ofs" type="hidden" value=<%= "#{@ofs}" %> />
 		<%= submit_tag("Previous") %>
