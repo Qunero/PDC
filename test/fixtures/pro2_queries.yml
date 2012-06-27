@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  exp_id: 1
+  group_id: 1
+  pep_querys: MyText
+
+two:
+  exp_id: 1
+  group_id: 1
+  pep_querys: MyText

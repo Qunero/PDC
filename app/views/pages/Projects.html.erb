@@ -6,21 +6,21 @@
 <%= select_tag(:data_type, options_for_select([["GRCh37 ref_table tsv",1], ["GRCh37.64.pep.all.fa",2]],1)) %>
 <h3>2. Choose the way to upload data</h3>
 <div style="display:none">
-<%= radio_button_tag(:load_data, "upload") %>
-<%= label_tag(:load_data_upload, "Upload your tsv file") %>
-<%= form_tag("/upload",:multipart => true, :method => "post") do %>
-	<%= label_tag(:file, "Choose your file:") %>
-	<%= file_field_tag "file" %>
-	<%= submit_tag("Upload file") %>
-<% end %>
+  <%= radio_button_tag(:load_data, "upload") %>
+  <%= label_tag(:load_data_upload, "Upload your tsv file") %>
+  <%= form_tag("/upload",:multipart => true, :method => "post") do %>
+    <%= label_tag(:file, "Choose your file:") %>
+    <%= file_field_tag "file" %>
+    <%= submit_tag("Upload file") %>
+  <% end %>
 </div>
 <%= radio_button_tag(:load_data, "path") %>
 <%= label_tag(:load_data_path, "Just give the tsv file path" )%>
 <%= form_tag("/upload", :method => "post") do %>
-	<%= label_tag(:path, "File path:") %>
-	<%= text_field_tag(:path) %>
-	<br/>
-	<%= label_tag(:password, "Admin key:") %>
-	<%= password_field_tag(:password) %>
-	<%= submit_tag("Submit path") %>
+  <%= label_tag(:path, "File path:") %>
+  <%= text_field_tag(:path) %>
+  <br/>
+  <%= label_tag(:password, "Admin key:") %>
+  <%= password_field_tag(:password) %>
+  <%= submit_tag("Submit path") %>
 <% end %>

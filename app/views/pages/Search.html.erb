@@ -1,17 +1,17 @@
 <h1>Search By Protein</h1>
 <%= form_tag("/pages/Result", :method => "get") do %>
-	<%= label_tag(:pro_id, "Input your Ensembl Protein ID:") %>
-	<br/>
-	<%= text_field_tag(:pro_id) %>
-	<%= submit_tag("Search_Pro") %>
+  <%= label_tag(:pro_id, "Input your Ensembl Protein ID:") %>
+  <br/>
+  <%= text_field_tag(:pro_id) %>
+  <%= submit_tag("Search_Pro") %>
 <% end %>
 
 <br/>
 
 <h1>Search By Gene</h1>
 <%= form_tag("/pages/Result", :method => "get") do %>
-	<%= label_tag(:gene_id, "Input your Ensembl Gene ID:") %>
-	<br/>
-	<%= text_field_tag(:gene_id) %>
-	<%= submit_tag("Search_Gene") %>
+  <%= label_tag(:gene_id, "Input your Ensembl Gene ID:") %>
+  <br/>
+  <%= text_field_tag(:gene_id) %>
+  <%= submit_tag("Search_Gene") %>
 <% end %>

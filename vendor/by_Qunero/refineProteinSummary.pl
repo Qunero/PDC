@@ -18,7 +18,7 @@
 =head1 Example
 
     perl  refineProteinSummary.pl -h
-    perl  refineProteinSummary.pl 
+    perl  refineProteinSummary.pl -e 1 merge249-proteinSummary.txt -o merge249-proteinSummary.sv -q merge249-proteinSummary.qf
 
 =head1 Version
 
@@ -75,10 +75,11 @@ my $pep_query;
 while(<STDIN>){
     @line = split /\t/;
     next if $line[1]=~ /[-|>]/;                 # ignore results from mutaion db
+    next if $line[7]=~ /[|>]/;                  # ignore results from mutaion db
     $pep_query = $line[6];
     $line[6] = 1+($line[6]=~tr/;/;/);              # count query numbers 
     print STDOUT join("/",($exp,@line));
-    print QF join("/",($exp,$line[1],$pep_query)),"\n";
+    print QF join("/",($exp,$line[0],$pep_query)),"\n";
 }
 
 

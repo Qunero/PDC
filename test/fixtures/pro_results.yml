@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  exp_id: 1
+  group_id: 1
+  pro_id: MyString
+  pro_mass: 1.5
+  coverage: 1.5
+  uniq_pep_num: 1
+  uniq_spec_num: 1
+  pep_query_num: 1
+  same_set: MyText
+  description: MyString
+
+two:
+  exp_id: 1
+  group_id: 1
+  pro_id: MyString
+  pro_mass: 1.5
+  coverage: 1.5
+  uniq_pep_num: 1
+  uniq_spec_num: 1
+  pep_query_num: 1
+  same_set: MyText
+  description: MyString

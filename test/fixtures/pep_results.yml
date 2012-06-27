@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  exp_id: 1
+  query_number: 1
+  calc_mr: 1.5
+  charge: 1
+  peptide_ms_delta: 1.5
+  ions_score: 1.5
+  homology_score: 1.5
+  identity_score: 1.5
+  evalue: 1.5
+  peptide_seq: MyString
+  protein_id: MyString
+  modification: MyString
+  retention_time: 1.5
+
+two:
+  exp_id: 1
+  query_number: 1
+  calc_mr: 1.5
+  charge: 1
+  peptide_ms_delta: 1.5
+  ions_score: 1.5
+  homology_score: 1.5
+  identity_score: 1.5
+  evalue: 1.5
+  peptide_seq: MyString
+  protein_id: MyString
+  modification: MyString
+  retention_time: 1.5
