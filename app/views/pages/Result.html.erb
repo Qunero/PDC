@@ -3,6 +3,8 @@
 <% else %>
 	<% if @result_type =='protein' %>
 		<h1>Results for Protein: <%= params[:pro_id]%> </h1>
+		<br/>
+		<h3>1. A short summary table</h3>
 		<table border="1" cellpadding="5">
 			<tr>
 				<th>Protein ID</th>
@@ -23,6 +25,9 @@
 		</table>
 
 		<br />
+
+		<h3>2. Experement data report</h3>
+		<p>There will be more data soon</p>
 	<% else %>
 		<h1>Results for Gene: <%= params[:gene_id]%> </h1>
 		<table border="1" cellpadding="5">
