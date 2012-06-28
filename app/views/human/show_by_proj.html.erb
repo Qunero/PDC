@@ -1,0 +1,48 @@
+<h1>Experiment evidence for Project NO.<%= "#{@exp_id}"%></h1>
+
+<br/>
+
+<div >
+  <% if @results.size < 0 %>
+    <p>No data found so far , if you think this may be an error , please report to admin: QuNengrong#genomics.cn</p>
+  <% else %>
+    <table border="1" cellpadding="5" id="pro_summary">
+      <tr>
+        <th>Project ID</th>
+        <th>Group ID</th>
+        <th>Leading Protein ID</th>
+        <th>Leading Protein Mass</th>
+        <th>Leading Protein Coverage</th>
+        <th>Num. of Uniq Peps</th>
+        <th>Num. of Uniq Spectra</th>
+        <th>Num. of Peptide Query</th>
+        <th>Same Set</th>
+        <th>Leading Protein Description</th>
+      </tr>
+      <% @results.each do |record| %>
+        <tr>
+          <td><%= record.exp_id %></td>
+          <td><%= record.group_id %></td>
+          <td><%= record.pro_id %></td>
+          <td><%= record.pro_mass %></td>
+          <td><%= record.coverage %></td>
+          <td><%= record.uniq_pep_num %></td>
+          <td><%= record.uniq_spec_num %></td>
+          <td><%= record.pep_query_num %></td>
+          <td><%= record.same_set %></td>
+          <td><%= record.description %></td>
+        </tr>
+      <% end %>
+    </table>
+    <% if @results.size == 20 %>
+      <%= form_tag("/human/show_by_proj", :method => "post") do %>
+        <input name="exp_id" type="hidden" value=<%= "#{@exp_id}" %> />
+        <input name="ofs" type="hidden" value=<%= "#{@ofs}" %> />
+        <input name="group_id" type="hidden" value="all" />
+        <%= submit_tag("Previous") %>
+        <%= submit_tag("Next") %>
+      <% end %>
+    <% end %>
+  <% end %>
+
+</div>

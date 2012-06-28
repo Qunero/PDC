@@ -22,6 +22,7 @@ class PagesController < ApplicationController
 		if params[:commit]=='Search_Pro'
 			@result_type = 'protein'
 			@results = Protein.where(["pro_id = ?", params[:pro_id] ]).all
+            @exp_results = IdentifiedProtein.where(["pro_id = ?", params[:pro_id] ]).all
 		else
 			@result_type = 'gene'
 			@results = Protein.where(["gene = ?", params[:gene_id] ]).all

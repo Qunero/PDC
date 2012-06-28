@@ -25,6 +25,7 @@ PDC::Application.routes.draw do
   match '/help', :to => 'pages#Help'
   match '/home', :to => 'pages#Home'
   match '/human/show_by_chr', :to => 'human#show_by_chr'
+  match '/human/show_by_proj', :to => 'human#show_by_proj'
   match '/projects', :to => 'pages#Projects'
   match '/search', :to => 'pages#Search'
   match '/signup', :to => 'users#new'

@@ -26,18 +26,35 @@
 
 		<br />
 
-		<h3>2. Experement data report</h3>
-		<p>There will be more data soon</p>
-	<% else %>
-		<h1>Results for Gene: <%= params[:gene_id]%> </h1>
-		<table border="1" cellpadding="5">
-			<tr>
-				<th>Gene ID</th>
-				<th>Transcription ID</th>
-				<th>Protein ID</th>
-				<th>Chromosome</th>
-				<th>Version</th>
-			</tr>
+        <h3>2. Experiment data report</h3>
+        <% if @exp_results.size > 0 %>
+          <table border="1" cellpadding="5">
+            <tr>
+              <th>Protein ID</th>
+              <th>Project ID</th>
+              <th>Identified Protein Group ID</th>
+            </tr>
+            <% @exp_results.each do |record| %>
+              <tr>
+                <td><%= record.pro_id %> </td>
+                <td><%= link_to record.exp_id,"/human/show_by_proj?exp_id=#{record.exp_id}&group_id=all" %> </td>
+                <td><%= link_to record.group_id,"/human/show_by_proj?exp_id=#{record.exp_id}&group_id=#{record.group_id}"  %> </td>
+              </tr>
+            <% end %>
+          </table>
+        <% else %>
+          <p>There is no experiment evidence so far .</p>
+        <% end %>
+      <% else %>
+          <h1>Results for Gene: <%= params[:gene_id]%> </h1>
+          <table border="1" cellpadding="5">
+            <tr>
+              <th>Gene ID</th>
+              <th>Transcription ID</th>
+              <th>Protein ID</th>
+              <th>Chromosome</th>
+              <th>Version</th>
+            </tr>
 			<% @results.each do |record| %>
 				<tr>
 					<td><%= link_to record.gene, "http://asia.ensembl.org/Homo_sapiens/Gene/Summary?g=#{record.gene}", :target =>"_blank"  %></td>
