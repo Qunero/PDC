@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120628062621) do
+ActiveRecord::Schema.define(:version => 20120629110533) do
 
   create_table "identified_proteins", :id => false, :force => true do |t|
     t.string  "pro_id"
@@ -60,8 +60,9 @@ ActiveRecord::Schema.define(:version => 20120628062621) do
     t.string   "chr"
     t.string   "gene"
     t.string   "transcription"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.integer  "identified_time", :default => 0
   end
 
 end
