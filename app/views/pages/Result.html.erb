@@ -5,11 +5,12 @@
 		<h1>Results for Protein: <%= params[:pro_id]%> </h1>
 		<br/>
 		<h3>1. A short summary table</h3>
-		<table border="1" cellpadding="5">
+		<table border="1" cellpadding="5" id="dcontent">
 			<tr>
 				<th>Protein ID</th>
 				<th>Transcription ID</th>
-				<th>Gene ID</th>
+                <th>Gene ID</th>
+                <th>Identified Times</th>
 				<th>Chromosome</th>
 				<th>Version</th>
 			</tr>
@@ -18,6 +19,7 @@
 					<td><%= link_to record.pro_id, "http://asia.ensembl.org/Homo_sapiens/Search/Results?species=Homo_sapiens;idx=;q=#{record.pro_id}", :target =>"_blank" %></td>
 					<td><%= link_to record.transcription, "http://asia.ensembl.org/Homo_sapiens/Transcript/Summary?t=#{record.transcription}", :target=>"_blank" %></td>
 					<td><%= link_to record.gene,"/pages/Result?gene_id=#{record.gene}&commit=Search_Gene"  %></td>
+                    <td><%= record.identified_time %></td>
 					<td><%= record.chr %></td>
 					<td><%= record.version %></td>
 				</tr>
@@ -28,7 +30,7 @@
 
         <h3>2. Experiment data report</h3>
         <% if @exp_results.size > 0 %>
-          <table border="1" cellpadding="5">
+          <table border="1" cellpadding="5" id="dcontent">
             <tr>
               <th>Protein ID</th>
               <th>Project ID</th>
@@ -47,11 +49,12 @@
         <% end %>
       <% else %>
           <h1>Results for Gene: <%= params[:gene_id]%> </h1>
-          <table border="1" cellpadding="5">
+          <table border="1" cellpadding="5" id="dcontent">
             <tr>
               <th>Gene ID</th>
               <th>Transcription ID</th>
               <th>Protein ID</th>
+              <th>Identified Times</th>
               <th>Chromosome</th>
               <th>Version</th>
             </tr>
@@ -60,6 +63,7 @@
 					<td><%= link_to record.gene, "http://asia.ensembl.org/Homo_sapiens/Gene/Summary?g=#{record.gene}", :target =>"_blank"  %></td>
 					<td><%= link_to record.transcription, "http://asia.ensembl.org/Homo_sapiens/Transcript/Summary?t=#{record.transcription}", :target=>"_blank" %></td>
 					<td><%= link_to record.pro_id, "/pages/Result?pro_id=#{record.pro_id}&commit=Search_Pro" %></td>
+                    <td><%= record.identified_time %></td>
 					<td><%= record.chr %></td>
 					<td><%= record.version %></td>
 				</tr>

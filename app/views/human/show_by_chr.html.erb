@@ -6,11 +6,12 @@
 	<%= image_tag("chr#{@chr}.jpg", :alt => "chr#{@chr}", :class => "round", :title =>"chr#{@chr}") %>
 </div>
 <div id='pro_table'>
-	<table border="1" cellpadding="5">
+	<table border="1" cellpadding="5" id="dcontent">
 		<tr>
 			<th>Protein ID</th>
 			<th>Transcription ID</th>
 			<th>Gene ID</th>
+			<th>Identified Times</th>
 			<th>Chromosome</th>
 			<th>Version</th>
 		</tr>
@@ -19,6 +20,7 @@
 				<td><%= link_to record.pro_id, "/pages/Result?pro_id=#{record.pro_id}&commit=Search_Pro" %></td>
 				<td><%= link_to record.transcription, "http://asia.ensembl.org/Homo_sapiens/Transcript/Summary?t=#{record.transcription}", :target=>"_blank" %></td>
 				<td><%= link_to record.gene,"/pages/Result?gene_id=#{record.gene}&commit=Search_Gene"  %></td>
+				<td><%= record.identified_time %></td>
 				<td><%= record.chr %></td>
 				<td><%= record.version %></td>
 			</tr>
