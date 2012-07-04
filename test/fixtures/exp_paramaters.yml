@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  enzyme: MyString
+  db: MyString
+  pep_tol: MyString
+  ion_tol: MyString
+  var_mod: MyString
+  fixed_mod: MyString
+  mass_type: MyString
+  instrument: MyString
+  miss_clv: 1
+  pro_mass: MyString
+  project_id: 1
+
+two:
+  enzyme: MyString
+  db: MyString
+  pep_tol: MyString
+  ion_tol: MyString
+  var_mod: MyString
+  fixed_mod: MyString
+  mass_type: MyString
+  instrument: MyString
+  miss_clv: 1
+  pro_mass: MyString
+  project_id: 1

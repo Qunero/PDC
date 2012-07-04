@@ -1,0 +1,3 @@
+1|merge249|利用串联质谱搜索蛋白质序列数据库是目前蛋白质鉴定最成功和最常用的方法。我们采用目前世界上使用最广泛的蛋白质鉴定搜索软件Mascot(www.matrixscience.com)对质谱数据进行分析，其基本原理是将数据库中的序列做理论酶切和理论碎裂，然后将预测的谱图跟实验谱图匹配，从而鉴定肽序列，进而鉴定整个蛋白。
+         以Mascot ion score大于或等于identity score为肽段过滤条件，并且以至少鉴定到一个满足上述条件的unique肽段作为蛋白质鉴定过滤条件.
+我们采用Thermo Scientific LTQ Orbitrap Velos质谱仪进行质谱数据采集，LTQ Orbitrap Velos结合了业界领先的Orbitrap质量分析仪，新的更高的能量碰撞解离（HCD）池和新的LTQ Velos ，这是世界上最快，最敏感的离子阱质谱仪。原始数据经过Thermo Scientific Proteome Discoverer软件处理导出MGF(Mascot generic format)文件，然后采用Mascot软件进行蛋白质鉴定.|2011-10-16|2012-07-04 07:16:47.319898|2012-07-04 07:16:47.319898

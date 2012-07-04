@@ -1,0 +1,29 @@
+<table id="dcontent">
+  <tr>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Detail</th>
+    <th>Date</th>
+    <th>Links</th>
+  </tr>
+
+<% @projects.each do |project| %>
+  <tr>
+    <td><%= project.id %></td>
+    <td><%= project.title %></td>
+    <td>
+      <% if project.detail.length < 40 %>
+        <%= project.detail %>
+      <% else %>
+        <%= project.detail[0,37] + ' ...' %>
+      <% end %>
+    </td>
+    <td><%= project.date %></td>
+    <td>
+      <%= link_to 'Show', project %>
+      <%= link_to 'Edit', edit_project_path(project) %> 
+      <%= link_to 'Destroy', project, method: :delete, data: { confirm: 'Are you sure?' } %>
+    </td>
+  </tr>
+<% end %>
+</table>

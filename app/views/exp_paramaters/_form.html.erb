@@ -1,0 +1,61 @@
+<%= form_for(@exp_paramater) do |f| %>
+  <% if @exp_paramater.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@exp_paramater.errors.count, "error") %> prohibited this exp_paramater from being saved:</h2>
+
+      <ul>
+      <% @exp_paramater.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :enzyme %><br />
+    <%= f.text_field :enzyme %>
+  </div>
+  <div class="field">
+    <%= f.label :db %><br />
+    <%= f.text_field :db %>
+  </div>
+  <div class="field">
+    <%= f.label :pep_tol %><br />
+    <%= f.text_field :pep_tol %>
+  </div>
+  <div class="field">
+    <%= f.label :ion_tol %><br />
+    <%= f.text_field :ion_tol %>
+  </div>
+  <div class="field">
+    <%= f.label :var_mod %><br />
+    <%= f.text_field :var_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :fixed_mod %><br />
+    <%= f.text_field :fixed_mod %>
+  </div>
+  <div class="field">
+    <%= f.label :mass_type %><br />
+    <%= f.text_field :mass_type %>
+  </div>
+  <div class="field">
+    <%= f.label :instrument %><br />
+    <%= f.text_field :instrument %>
+  </div>
+  <div class="field">
+    <%= f.label :miss_clv %><br />
+    <%= f.number_field :miss_clv %>
+  </div>
+  <div class="field">
+    <%= f.label :pro_mass %><br />
+    <%= f.text_field :pro_mass %>
+  </div>
+  <div class="field">
+    <%= f.label :project_id %><br />
+    <%= f.number_field :project_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

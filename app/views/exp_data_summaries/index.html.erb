@@ -1,0 +1,33 @@
+<h1>Listing exp_data_summaries</h1>
+
+<table>
+  <tr>
+    <th>Spectra num</th>
+    <th>Identified spectra num</th>
+    <th>Identified pep num</th>
+    <th>Identified pro num</th>
+    <th>Fdr</th>
+    <th>Project</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @exp_data_summaries.each do |exp_data_summary| %>
+  <tr>
+    <td><%= exp_data_summary.spectra_num %></td>
+    <td><%= exp_data_summary.identified_spectra_num %></td>
+    <td><%= exp_data_summary.identified_pep_num %></td>
+    <td><%= exp_data_summary.identified_pro_num %></td>
+    <td><%= exp_data_summary.fdr %></td>
+    <td><%= exp_data_summary.project_id %></td>
+    <td><%= link_to 'Show', exp_data_summary %></td>
+    <td><%= link_to 'Edit', edit_exp_data_summary_path(exp_data_summary) %></td>
+    <td><%= link_to 'Destroy', exp_data_summary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Exp data summary', new_exp_data_summary_path %>

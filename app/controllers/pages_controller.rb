@@ -15,6 +15,7 @@ class PagesController < ApplicationController
 
 	def Projects
 		@title = "Projects"
+        @projects = Project.all
 	end
 
 	def Result

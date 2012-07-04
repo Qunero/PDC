@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  spectra_num: 1
+  identified_spectra_num: 1
+  identified_pep_num: 1
+  identified_pro_num: 1
+  fdr: 1.5
+  project_id: 1
+
+two:
+  spectra_num: 1
+  identified_spectra_num: 1
+  identified_pep_num: 1
+  identified_pro_num: 1
+  fdr: 1.5
+  project_id: 1

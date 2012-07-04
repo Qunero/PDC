@@ -1,0 +1,41 @@
+<%= form_for(@exp_data_summary) do |f| %>
+  <% if @exp_data_summary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@exp_data_summary.errors.count, "error") %> prohibited this exp_data_summary from being saved:</h2>
+
+      <ul>
+      <% @exp_data_summary.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :spectra_num %><br />
+    <%= f.number_field :spectra_num %>
+  </div>
+  <div class="field">
+    <%= f.label :identified_spectra_num %><br />
+    <%= f.number_field :identified_spectra_num %>
+  </div>
+  <div class="field">
+    <%= f.label :identified_pep_num %><br />
+    <%= f.number_field :identified_pep_num %>
+  </div>
+  <div class="field">
+    <%= f.label :identified_pro_num %><br />
+    <%= f.number_field :identified_pro_num %>
+  </div>
+  <div class="field">
+    <%= f.label :fdr %><br />
+    <%= f.text_field :fdr %>
+  </div>
+  <div class="field">
+    <%= f.label :project_id %><br />
+    <%= f.number_field :project_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

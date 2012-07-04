@@ -1,0 +1,60 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Enzyme:</b>
+  <%= @exp_paramater.enzyme %>
+</p>
+
+<p>
+  <b>Db:</b>
+  <%= @exp_paramater.db %>
+</p>
+
+<p>
+  <b>Pep tol:</b>
+  <%= @exp_paramater.pep_tol %>
+</p>
+
+<p>
+  <b>Ion tol:</b>
+  <%= @exp_paramater.ion_tol %>
+</p>
+
+<p>
+  <b>Var mod:</b>
+  <%= @exp_paramater.var_mod %>
+</p>
+
+<p>
+  <b>Fixed mod:</b>
+  <%= @exp_paramater.fixed_mod %>
+</p>
+
+<p>
+  <b>Mass type:</b>
+  <%= @exp_paramater.mass_type %>
+</p>
+
+<p>
+  <b>Instrument:</b>
+  <%= @exp_paramater.instrument %>
+</p>
+
+<p>
+  <b>Miss clv:</b>
+  <%= @exp_paramater.miss_clv %>
+</p>
+
+<p>
+  <b>Pro mass:</b>
+  <%= @exp_paramater.pro_mass %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @exp_paramater.project_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_exp_paramater_path(@exp_paramater) %> |
+<%= link_to 'Back', exp_paramaters_path %>

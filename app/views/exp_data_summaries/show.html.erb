@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Spectra num:</b>
+  <%= @exp_data_summary.spectra_num %>
+</p>
+
+<p>
+  <b>Identified spectra num:</b>
+  <%= @exp_data_summary.identified_spectra_num %>
+</p>
+
+<p>
+  <b>Identified pep num:</b>
+  <%= @exp_data_summary.identified_pep_num %>
+</p>
+
+<p>
+  <b>Identified pro num:</b>
+  <%= @exp_data_summary.identified_pro_num %>
+</p>
+
+<p>
+  <b>Fdr:</b>
+  <%= @exp_data_summary.fdr %>
+</p>
+
+<p>
+  <b>Project:</b>
+  <%= @exp_data_summary.project_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_exp_data_summary_path(@exp_data_summary) %> |
+<%= link_to 'Back', exp_data_summaries_path %>

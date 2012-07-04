@@ -1,0 +1,43 @@
+<h1>Listing exp_paramaters</h1>
+
+<table>
+  <tr>
+    <th>Enzyme</th>
+    <th>Db</th>
+    <th>Pep tol</th>
+    <th>Ion tol</th>
+    <th>Var mod</th>
+    <th>Fixed mod</th>
+    <th>Mass type</th>
+    <th>Instrument</th>
+    <th>Miss clv</th>
+    <th>Pro mass</th>
+    <th>Project</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @exp_paramaters.each do |exp_paramater| %>
+  <tr>
+    <td><%= exp_paramater.enzyme %></td>
+    <td><%= exp_paramater.db %></td>
+    <td><%= exp_paramater.pep_tol %></td>
+    <td><%= exp_paramater.ion_tol %></td>
+    <td><%= exp_paramater.var_mod %></td>
+    <td><%= exp_paramater.fixed_mod %></td>
+    <td><%= exp_paramater.mass_type %></td>
+    <td><%= exp_paramater.instrument %></td>
+    <td><%= exp_paramater.miss_clv %></td>
+    <td><%= exp_paramater.pro_mass %></td>
+    <td><%= exp_paramater.project_id %></td>
+    <td><%= link_to 'Show', exp_paramater %></td>
+    <td><%= link_to 'Edit', edit_exp_paramater_path(exp_paramater) %></td>
+    <td><%= link_to 'Destroy', exp_paramater, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Exp paramater', new_exp_paramater_path %>
