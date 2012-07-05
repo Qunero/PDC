@@ -32,7 +32,7 @@ PDC::Application.routes.draw do
   match '/home', :to => 'pages#Home'
   match '/human/show_by_chr', :to => 'human#show_by_chr'
   match '/human/show_by_proj', :to => 'human#show_by_proj'
-  match '/project', :to => 'pages#Projects'
+  match '/proj', :to => 'pages#Projects'
   match '/search', :to => 'pages#Search'
   match '/signup', :to => 'users#new'
   match '/upload', :to => 'pages#Upload'

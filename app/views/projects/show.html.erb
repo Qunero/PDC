@@ -1,25 +1,14 @@
-<p id="notice"><%= notice %></p>
+<h1>Data Summary</h1>
+<%= render :partial =>"exp_data_summaries/table"%>
+<br/>
+<hr/>
 
-<p>
-  <b>Id:</b>
-  <%= @project.id %>
-</p>
+<h1>Analysis Paramaters</h1>
+<%= render :partial =>"exp_paramaters/table"%>
+<br/>
+<hr/>
 
-<p>
-  <b>Title:</b>
-  <%= @project.title %>
-</p>
+<h1>Project information</h1>
+<%= render "table"%>
 
-<p>
-  <b>Detail:</b>
-  <%= @project.detail %>
-</p>
-
-<p>
-  <b>Date:</b>
-  <%= @project.date %>
-</p>
-
-
-<%= link_to 'Edit', edit_project_path(@project) %> |
 <%= link_to 'Back', projects_path %>
