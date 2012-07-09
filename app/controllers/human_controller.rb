@@ -26,9 +26,11 @@ class HumanController < ApplicationController
 
   def show_by_proj
     @exp_id = params[:exp_id]
-    @group_id = params[:group_id]
+    @id = params[:id]
+    @type = params[:type]
+    @type ||= 'pro'
 
-    if @group_id == "all"
+    if @id == "all"
       @ofs = params[:ofs].to_i
       if params[:commit] == 'Previous'
         @ofs -= 20
@@ -39,13 +41,23 @@ class HumanController < ApplicationController
         @ofs = 0
       end
 
-      @results = ProResult.where(["exp_id = ?", @exp_id ]).limit(20).offset(@ofs)
+      if @type == 'pro'
+        @results = ProResult.where(["exp_id = ?", @exp_id ]).limit(20).offset(@ofs)
+      else 
+        @results = PepResult.where(["exp_id = ?", @exp_id ]).limit(20).offset(@ofs)
+      end
+
       if @results.size < 20
         @ofs = 0
       end
 
     else
-      @results = ProResult.where(["exp_id = ? and group_id=?", @exp_id, @group_id ]).limit(20)
+      if @type == 'pro'
+        @results = ProResult.where(["exp_id = ? and group_id=?", @exp_id, @id ]).limit(20)
+      else 
+        @results = PepResult.where(["exp_id = ? and query_number=?", @exp_id, @id ]).limit(20)
+      end
+
     end
   end
 

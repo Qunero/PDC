@@ -20,10 +20,10 @@
       <%= sprintf("[ %5.2f%% ]",@exp_data_summary.identified_spectra_num * 100.0 /  @exp_data_summary.spectra_num)%>
     </td>
     <td>
-      <%= link_to @exp_data_summary.identified_pep_num, "/human/show_by_proj?exp_id=#{@exp_data_summary.project_id}&group_id=all" %>
+      <%= link_to @exp_data_summary.identified_pep_num, "/human/show_by_proj?exp_id=#{@exp_data_summary.project_id}&type='pep'&group_id=all" %>
     </td>
     <td>
-      <%= link_to @exp_data_summary.identified_pro_num, "/human/show_by_proj?exp_id=#{@exp_data_summary.project_id}&group_id=all" %>
+      <%= link_to @exp_data_summary.identified_pro_num, "/human/show_by_proj?exp_id=#{@exp_data_summary.project_id}&type=pro&group_id=all" %>
     </td>
     <td>
       <%= @exp_data_summary.fdr %>

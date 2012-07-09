@@ -6,39 +6,79 @@
   <% if @results.size < 0 %>
     <p>No data found so far , if you think this may be an error , please report to admin: QuNengrong#genomics.cn</p>
   <% else %>
-    <table border="1" cellpadding="5" id="pro_summary">
-      <tr>
-        <th>Project ID</th>
-        <th>Group ID</th>
-        <th>Leading Protein ID</th>
-        <th>Leading Protein Mass</th>
-        <th>Leading Protein Coverage</th>
-        <th>Num. of Uniq Peps</th>
-        <th>Num. of Uniq Spectra</th>
-        <th>Num. of Peptide Query</th>
-        <th>Same Set</th>
-        <th>Leading Protein Description</th>
-      </tr>
-      <% @results.each do |record| %>
+    <% if @type=='pro' %>
+      <table border="1" cellpadding="5" id="pro_summary">
         <tr>
-          <td><%= record.exp_id %></td>
-          <td><%= record.group_id %></td>
-          <td><%= record.pro_id %></td>
-          <td><%= record.pro_mass %></td>
-          <td><%= record.coverage %></td>
-          <td><%= record.uniq_pep_num %></td>
-          <td><%= record.uniq_spec_num %></td>
-          <td><%= record.pep_query_num %></td>
-          <td><%= record.same_set %></td>
-          <td><%= record.description %></td>
+          <th>Project ID</th>
+          <th>Group ID</th>
+          <th>Leading Protein ID</th>
+          <th>Leading Protein Mass</th>
+          <th>Leading Protein Coverage</th>
+          <th>Num. of Uniq Peps</th>
+          <th>Num. of Uniq Spectra</th>
+          <th>Num. of Peptide Query</th>
+          <th>Same Set</th>
+          <th>Leading Protein Description</th>
         </tr>
-      <% end %>
+        <% @results.each do |record| %>
+          <tr>
+            <td><%= link_to record.exp_id,"/projects/#{record.exp_id}" %></td>
+            <td><%= record.group_id %></td>
+            <td><%= record.pro_id %></td>
+            <td><%= record.pro_mass %></td>
+            <td><%= record.coverage %></td>
+            <td><%= record.uniq_pep_num %></td>
+            <td><%= record.uniq_spec_num %></td>
+            <td><%= record.pep_query_num %></td>
+            <td><%= record.same_set %></td>
+            <td><%= record.description %></td>
+          </tr>
+        <% end %>
+      </table>
+    <% else %>
+      <table border="1" cellpadding="5" id="pro_summary">
+        <tr>
+          <th>Project ID</th>
+          <th>Query ID</th>
+          <th>Cal Mr</th>
+          <th>Charge</th>
+          <th>Peptide delta Ms </th>
+          <th>Mascot Ion Score</th>
+          <th>Mascot Homology Score</th>
+          <th>Mascot Identity Score</th>
+          <th>E-value</th>
+          <th>Peptide Seq</th>
+          <th>Modifications</th>
+          <th>Retention time</th>
+          <th>Proteins</th>
+        </tr>
+        <% @results.each do |record| %>
+          <tr>
+            <td><%= link_to record.exp_id,"/projects/#{record.exp_id}" %></td>
+            <td><%= record.query_number %></td>
+            <td><%= record.calc_mr %></td>
+            <td><%= record.charge %></td>
+            <td><%= record.peptide_ms_delta %></td>
+            <td><%= record.ions_score %></td>
+            <td><%= record.homology_score %></td>
+            <td><%= record.identity_score %></td>
+            <td><%= record.evalue %></td>
+            <td><%= record.peptide_seq %></td>
+            <td><%= record.modification %></td>
+            <td><%= record.retention_time %></td>
+            <td class='td' style="text-align:left;"><%= record.protein_id %></td>
+          </tr>
+        <% end %>
     </table>
+
+  <% end %>
+
     <% if @results.size == 20 %>
       <%= form_tag("/human/show_by_proj", :method => "post") do %>
         <input name="exp_id" type="hidden" value=<%= "#{@exp_id}" %> />
+        <input name="type" type="hidden" value=<%= "#{@type}" %> />
         <input name="ofs" type="hidden" value=<%= "#{@ofs}" %> />
-        <input name="group_id" type="hidden" value="all" />
+        <input name="id" type="hidden" value="all" />
         <%= submit_tag("Previous") %>
         <%= submit_tag("Next") %>
       <% end %>

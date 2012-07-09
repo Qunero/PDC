@@ -9,6 +9,12 @@
   padding:5px;
 }
 
+.td{
+  white-space:nowrap;overflow:scroll;
+  width:200px;
+  text-align:left;
+}
+
 table{
   border-collapse:collapse;
 }
@@ -16,7 +22,7 @@ table{
 #pro_summary
 {
   font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
-  width:100%;
+  table-layout:fixed;
   border-collapse:collapse;
 }
 
