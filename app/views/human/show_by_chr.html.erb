@@ -1,7 +1,31 @@
 <h1>Summary for Human#chr<%= "#{@chr}"%></h1>
+<br/>
+<table id="dcontent">
+  <tr>
+    <th>Chromosome</th>
+    <th># of Proteins in this Chr</th>
+    <th># of Identified Proteins</th>
+    <th>Identified Ratio</th>
+  </tr>
 
+  <tr valign="bottom">
+    <td width="50px" style="font:16px">
+      <%= link_to @identified_summary.chr, "/human/show_by_chr?chr=#{@identified_summary.chr}" %>
+    </td>
+    <td>
+      <%= @identified_summary.pro_num %>
+    </td>
+    <td>
+      <%= @identified_summary.identified_pro_num %>
+    </td>
+    <td>
+      <%=  @identified_summary.identified_ratio %>
+    </td>
+  </tr>
+</table>
 <br/>
 
+<h1>Protein List for Human#chr<%= "#{@chr}"%></h1>
 <div id='chr'>
 	<%= image_tag("chr#{@chr}.jpg", :alt => "chr#{@chr}", :class => "round", :title =>"chr#{@chr}") %>
 </div>
@@ -26,6 +50,7 @@
 			</tr>
 		<% end %>
 	</table>
+    <strong><%= "Current: #{@ofs+1}-#{@ofs+@records.size} ; total: #{@identified_summary.pro_num }" %></strong>
 	<%= form_tag("/human/show_by_chr", :method => "post") do %>
 		<input name="chr" type="hidden" value=<%= "#{@chr}" %> />
 		<input name="ofs" type="hidden" value=<%= "#{@ofs}" %> />

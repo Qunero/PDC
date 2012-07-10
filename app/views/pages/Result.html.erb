@@ -39,7 +39,7 @@
             <% @exp_results.each do |record| %>
               <tr>
                 <td><%= record.pro_id %> </td>
-                <td><%= link_to record.exp_id,"/human/show_by_proj?exp_id=#{record.exp_id}&group_id=all" %> </td>
+                <td><%= link_to record.exp_id,"/human/show_by_proj?exp_id=#{record.exp_id}&id=all&type=pro" %> </td>
                 <td><%= link_to record.group_id,"/human/show_by_proj?exp_id=#{record.exp_id}&id=#{record.group_id}&type=pro"  %> </td>
               </tr>
             <% end %>

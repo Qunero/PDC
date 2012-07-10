@@ -1,52 +1,62 @@
-<div class="exp-left",style="float:left;width:640px;">
+<div id="exp-left">
   <h1>Explore data by Chromosome</h1>
   <table>
-    <tr valign="bottom">
-      <% @chr_group1.each do |i| %>
-        <td width="50px" style="font:16px">
-          <% chr=image_tag("small_chr#{i}.jpg", :alt => "chr#{i}", :class => "round", :title =>"chr#{i}") %>
-          <%= link_to chr, "human/show_by_chr?chr=#{i}" %>
-          <%= link_to "#{i}", "human/show_by_chr?chr=#{i}" %>
-        </td>
-      <% end%>
-    </tr>
-    <tr valign="bottom">
-      <% @chr_group2.each do |i| %>
-        <td width="50px" style="font:16px">
-          <% chr=image_tag("small_chr#{i}.jpg", :alt => "chr#{i}", :class => "round", :title =>"chr#{i}") %>
-          <%= link_to chr, "human/show_by_chr?chr=#{i}" %>
-          <%= link_to "#{i}", "human/show_by_chr?chr=#{i}" %>
-        </td>
-      <% end%>
-    </tr>
+    <tbody style="height:750px">
+      <tr valign="bottom">
+        <% @chr[0,8].each do |i| %>
+          <td width="50px" style="font:16px">
+            <% chr=image_tag("small_chr#{i}.jpg", :alt => "chr#{i}", :class => "round", :title =>"chr#{i}") %>
+            <%= link_to chr, "human/show_by_chr?chr=#{i}" %>
+            <%= link_to "#{i}", "human/show_by_chr?chr=#{i}" %>
+          </td>
+        <% end%>
+      </tr>
+      <tr valign="bottom">
+        <% @chr[8,8].each do |i| %>
+          <td width="50px" height="240" style="font:16px">
+            <% chr=image_tag("small_chr#{i}.jpg", :alt => "chr#{i}", :class => "round", :title =>"chr#{i}") %>
+            <%= link_to chr, "human/show_by_chr?chr=#{i}" %>
+            <%= link_to "#{i}", "human/show_by_chr?chr=#{i}" %>
+          </td>
+        <% end%>
+      </tr>
+      <tr valign="bottom">
+        <% @chr[16,8].each do |i| %>
+          <td width="50px" height="240px" style="font:16px">
+            <% chr=image_tag("small_chr#{i}.jpg", :alt => "chr#{i}", :class => "round", :title =>"chr#{i}") %>
+            <%= link_to chr, "human/show_by_chr?chr=#{i}" %>
+            <%= link_to "#{i}", "human/show_by_chr?chr=#{i}" %>
+          </td>
+        <% end%>
+      </tr>
+    </tbody>
   </table>
 </div>
 
-<div class="exp-right",style="float:left;width:480px">
+<div id="exp-right">
   <h1>Identification info Summary</h1>
   <table id="dcontent">
     <tr>
       <th>Chromosome</th>
-      <th># of Identified Proteins</th>
       <th># of Proteins in this Chr</th>
+      <th># of Identified Proteins</th>
+      <th>Identified Ratio</th>
     </tr>
 
-    <% @chr_group1.each do |i| %>
+    <% @identified_summary.each do |record| %>
       <tr valign="bottom">
         <td width="50px" style="font:16px">
-          <%= link_to "#{i}", "human/show_by_chr?chr=#{i}" %>
+          <%= link_to record.chr, "human/show_by_chr?chr=#{record.chr}" %>
         </td>
-        <td></td>
-        <td></td>
-      </tr>
-    <% end%>
-    <% @chr_group2.each do |i| %>
-      <tr valign="bottom">
-        <td width="50px" style="font:16px">
-          <%= link_to "#{i}", "human/show_by_chr?chr=#{i}" %>
+        <td>
+          <%= record.pro_num %>
         </td>
-        <td></td>
-        <td></td>
+        <td>
+          <%= record.identified_pro_num %>
+        </td>
+        <td>
+          <%=  record.identified_ratio %>
+        </td>
       </tr>
     <% end%>
   </table>

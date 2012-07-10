@@ -7,7 +7,7 @@ class HumanController < ApplicationController
     else
       if params[:commit] == 'Previous'
         @ofs -= 20
-      else
+      elsif params[:commit] == 'Next'
         @ofs += 20
       end
     end
@@ -15,7 +15,7 @@ class HumanController < ApplicationController
     if @ofs < 0
       @ofs = 0
     end
-
+    @identified_summary = IdentifiedSummaryByChr.where(["chr= ?", @chr])[0]
     @records = Protein.where(["chr = ?", @chr ]).limit(20).offset(@ofs)
 
     # check whether there is enough records
@@ -30,17 +30,21 @@ class HumanController < ApplicationController
     @type = params[:type]
     @type ||= 'pro'
 
-    if @id == "all"
-      @ofs = params[:ofs].to_i
-      if params[:commit] == 'Previous'
-        @ofs -= 20
-      else
-        @ofs += 20
-      end
-      if @ofs < 0
-        @ofs = 0
-      end
+    @project = Project.find(@exp_id)
+    @exp_data_summary = @project.exp_data_summary
 
+    @ofs = params[:ofs].to_i
+    if params[:commit] == 'Previous'
+      @ofs -= 20
+    elsif params[:commit] == 'Next'
+      @ofs += 20
+    end
+    if @ofs < 0
+      @ofs = 0
+    end
+
+    if @id == "all"
+      
       if @type == 'pro'
         @results = ProResult.where(["exp_id = ?", @exp_id ]).limit(20).offset(@ofs)
       else 

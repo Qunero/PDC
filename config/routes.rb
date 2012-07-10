@@ -7,6 +7,8 @@ PDC::Application.routes.draw do
 
   get "human/show_by_chr"
 
+  get "pages/Admin"
+
   get "pages/Contact"
 
   get "pages/Explore"

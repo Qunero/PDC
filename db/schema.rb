@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120704094248) do
+ActiveRecord::Schema.define(:version => 20120710065453) do
 
   create_table "exp_data_summaries", :force => true do |t|
     t.integer  "spectra_num"
@@ -44,6 +44,13 @@ ActiveRecord::Schema.define(:version => 20120704094248) do
     t.string  "pro_id"
     t.integer "exp_id"
     t.integer "group_id"
+  end
+
+  create_table "identified_summary_by_chrs", :id => false, :force => true do |t|
+    t.string  "chr"
+    t.integer "pro_num"
+    t.integer "identified_pro_num"
+    t.float   "identified_ratio"
   end
 
   create_table "pep_results", :id => false, :force => true do |t|

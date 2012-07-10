@@ -9,3 +9,78 @@ a {
     background-color: #000; 
   } 
 }
+.mc{margin-left:auto;margin-right:auto;}
+.pr{position:relative;}
+.fl {
+  float: left;
+  display: inline;
+}
+.fr {
+  float: right;
+  display: inline;
+}
+.copy-map {
+  padding-top: 3px;
+  line-height: 1.5;
+  height: auto;
+  border-left: solid 1px #DDD;
+  display:inline
+}
+.pl15 {
+  padding-left: 15px;
+}
+.pb20{
+  padding-bottom: 20px;
+}
+.pb40{
+  padding-bottom: 40px;
+}
+.fb {
+  font-weight: bold;
+}
+.mt5 {
+  margin-top: 5px;
+}
+.mt10 {
+  margin-top: 10px;
+}
+.ml15 {
+  margin-left: 15px;
+}
+.f12 {
+  font-size: 12px;
+}
+.inblo {
+  display: inline-block;
+}
+
+div#wrapper	{
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  background: transparent top left repeat-y;
+}
+div#exp-left	{
+  float:left;
+  width:50%;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  text-align: left;
+  background: transparent top left repeat-y;
+}
+
+div#exp-right	{
+  float:left;
+  width:50%;
+  margin: 0 auto;
+  padding: 0;
+  border: 0;
+  text-align: left;
+  background: transparent top left repeat-y;
+}
+
+
+

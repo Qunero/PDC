@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  chr: MyString
+  pro_num: 1
+  identified_pro_num: 1
+  identified_ratio: 1.5
+
+two:
+  chr: MyString
+  pro_num: 1
+  identified_pro_num: 1
+  identified_ratio: 1.5

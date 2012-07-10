@@ -1,3 +1,7 @@
+<h1>Data Summary</h1>
+<%= render :partial =>"exp_data_summaries/table"%>
+<br/>
+<hr/>
 <h1>Experiment evidence for Project NO.<%= "#{@exp_id}"%></h1>
 
 <br/>
@@ -35,6 +39,7 @@
           </tr>
         <% end %>
       </table>
+      <strong><%= "Current: #{@ofs+1}-#{@ofs+@results.size} ; total: #{@exp_data_summary.identified_pro_num }" %></strong>
     <% else %>
       <table border="1" cellpadding="5" id="pro_summary">
         <tr>
@@ -69,11 +74,11 @@
             <td class='td' style="text-align:left;"><%= record.protein_id %></td>
           </tr>
         <% end %>
-    </table>
+      </table>
+      <strong><%= "Current: #{@ofs+1}-#{@ofs+@results.size} ; total: #{@exp_data_summary.identified_pep_num }" %></strong>
+    <% end %>
 
-  <% end %>
-
-    <% if @results.size == 20 %>
+    <% if @results.size > 1 %>
       <%= form_tag("/human/show_by_proj", :method => "post") do %>
         <input name="exp_id" type="hidden" value=<%= "#{@exp_id}" %> />
         <input name="type" type="hidden" value=<%= "#{@type}" %> />
