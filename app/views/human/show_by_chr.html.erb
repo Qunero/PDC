@@ -1,60 +1,67 @@
-<h1>Summary for Human#chr<%= "#{@chr}"%></h1>
-<br/>
-<table id="dcontent">
-  <tr>
-    <th>Chromosome</th>
-    <th># of Proteins in this Chr</th>
-    <th># of Identified Proteins</th>
-    <th>Identified Ratio</th>
-  </tr>
+<div id="show_by_chr-left">
+  <h1>Summary for Human#chr<%= "#{@chr}"%></h1>
+  <br/>
+  <table id="dcontent">
+    <tr>
+      <th>Chromosome</th>
+      <th># of Proteins in this Chr</th>
+      <th># of Identified Proteins</th>
+      <th>Identified Ratio</th>
+    </tr>
 
-  <tr valign="bottom">
-    <td width="50px" style="font:16px">
-      <%= link_to @identified_summary.chr, "/human/show_by_chr?chr=#{@identified_summary.chr}" %>
-    </td>
-    <td>
-      <%= @identified_summary.pro_num %>
-    </td>
-    <td>
-      <%= @identified_summary.identified_pro_num %>
-    </td>
-    <td>
-      <%=  @identified_summary.identified_ratio %>%
-    </td>
-  </tr>
-</table>
-<br/>
+    <tr valign="bottom">
+      <td width="50px" style="font:16px">
+        <%= link_to @identified_summary.chr, "/human/show_by_chr?chr=#{@identified_summary.chr}" %>
+      </td>
+      <td>
+        <%= @identified_summary.pro_num %>
+      </td>
+      <td>
+        <%= @identified_summary.identified_pro_num %>
+      </td>
+      <td>
+        <%=  @identified_summary.identified_ratio %>%
+      </td>
+    </tr>
+  </table>
+  <br/>
 
-<h1>Protein List for Human#chr<%= "#{@chr}"%></h1>
-<div id='chr'>
-	<%= image_tag("chr#{@chr}.jpg", :alt => "chr#{@chr}", :class => "round", :title =>"chr#{@chr}") %>
+  <div id='chr'>
+    <% circos = image_tag("identified_pro_chr#{@chr}.png", :alt => "identified_pro_chr#{@chr}", :class => "round", :title =>"identified_pro_chr#{@chr}",:height => '600', :width => '600') %>
+    <%= link_to circos, "/assets/identified_pro_chr#{@chr}.png" %>
+  </div>
+  <br/>
 </div>
-<div id='pro_table'>
-	<table border="1" cellpadding="5" id="dcontent">
-		<tr>
-			<th>Protein ID</th>
-			<th>Transcription ID</th>
-			<th>Gene ID</th>
-			<th>Identified Times</th>
-			<th>Chromosome</th>
-			<th>Version</th>
-		</tr>
-		<% @records.each do |record| %>
-			<tr>
-				<td><%= link_to record.pro_id, "/pages/Result?pro_id=#{record.pro_id}&commit=Search_Pro" %></td>
-				<td><%= link_to record.transcription, "http://asia.ensembl.org/Homo_sapiens/Transcript/Summary?t=#{record.transcription}", :target=>"_blank" %></td>
-				<td><%= link_to record.gene,"/pages/Result?gene_id=#{record.gene}&commit=Search_Gene"  %></td>
-				<td><%= record.identified_time %></td>
-				<td><%= record.chr %></td>
-				<td><%= record.version %></td>
-			</tr>
-		<% end %>
-	</table>
+
+<div id="show_by_chr-right">
+  <div id='pro_table'>
+    <h1>Protein List for Human#chr<%= "#{@chr}"%></h1>
+    <table border="1" cellpadding="5" id="dcontent">
+      <tr>
+        <th>Protein ID</th>
+        <th>Transcription ID</th>
+        <th>Gene ID</th>
+        <th>Identified Times</th>
+        <th>Chromosome</th>
+        <th>Version</th>
+      </tr>
+      <% @records.each do |record| %>
+        <tr>
+          <td><%= link_to record.pro_id, "/pages/Result?pro_id=#{record.pro_id}&commit=Search_Pro" %></td>
+          <td><%= link_to record.transcription, "http://asia.ensembl.org/Homo_sapiens/Transcript/Summary?t=#{record.transcription}", :target=>"_blank" %></td>
+          <td><%= link_to record.gene,"/pages/Result?gene_id=#{record.gene}&commit=Search_Gene"  %></td>
+          <td><%= record.identified_time %></td>
+          <td><%= record.chr %></td>
+          <td><%= record.version %></td>
+        </tr>
+      <% end %>
+    </table>
     <strong><%= "Current: #{@ofs+1}-#{@ofs+@records.size} ; total: #{@identified_summary.pro_num }" %></strong>
-	<%= form_tag("/human/show_by_chr", :method => "post") do %>
-		<input name="chr" type="hidden" value=<%= "#{@chr}" %> />
-		<input name="ofs" type="hidden" value=<%= "#{@ofs}" %> />
-		<%= submit_tag("Previous") %>
-		<%= submit_tag("Next") %>
-	<% end %>
+    <%= form_tag("/human/show_by_chr", :method => "post") do %>
+      <input name="chr" type="hidden" value=<%= "#{@chr}" %> />
+      <input name="ofs" type="hidden" value=<%= "#{@ofs}" %> />
+      <%= submit_tag("Previous") %>
+      <%= submit_tag("Next") %>
+    <% end %>
+  </div>
 </div>
